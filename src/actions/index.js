@@ -40,8 +40,17 @@ export function fetchdata(){
 export function filterData(dataGot, categoryList, brandList){
 	payloadData = {}
 	var newData = [];
-	var newDataFinal = []
-	
+	var newDataFinal = [];
+
+	if(categoryList.length == 0 && brandList.length == 0){
+		newDataFinal = golbalData['data']
+	}
+	else if(categoryList.length == 0){
+		newData = golbalData['data']
+	}
+	else if(brandList.length == 0){
+		newDataFinal = newData
+	}
 
 	for(var data of golbalData['data']){
 		for(var i in categoryList){
@@ -53,23 +62,15 @@ export function filterData(dataGot, categoryList, brandList){
 	}
 
 	for(var data of newData){
+		console.log(data['Brand']['name'])
 		for(var i in brandList){
 			if(brandList[i] == data['Brand']['name']){
-				console.log(data['Brand']['name'])
 				newDataFinal.push(data)
 			}
 		}
 	}
-	if(categoryList.length == 0 && brandList.length == 0){
-		newDataFinal = golbalData
-	}
-	else if{
-		
-	}
-	if(brandList.length == 0){
-		newDataFinal = newData
-	}
-	console.log(newDataFinal)
+				console.log(newDataFinal)
+
 	payloadData['data'] = newDataFinal;
 	payloadData['category'] =golbalData['category']; 
 	payloadData['brand'] = golbalData['brand'];

@@ -6,11 +6,11 @@ import Maps from '../components/maps'
 
 class WeatherList extends React.Component{
 	renderWeather(cityData, index){
-		if(index > 8)
+		if(index > 158)
 			return null;
 
 		return(
-		    <li key={index} className="list-group-item" style={{marginTop:10}}> {cityData['name']}</li>
+		    <li key={index} className="list-group-item" style={{marginTop:10}}> {cityData['name']} {cityData['Brand']['name']} {cityData['Category']['name']}</li>
 		    
 			)
 	}
