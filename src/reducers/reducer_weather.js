@@ -1,12 +1,15 @@
 import { FETCH_DATA } from '../actions/index';
 
-export default function (state = [], action){
+export default function (state = {}, action){
 	switch(action.type){
 		case FETCH_DATA:
-			console.log(action.payload)
-
-			return [...state, action.payload.data, action.payload.brand, action.payload.category];
+			
+			return Object.assign({}, state, action.payload)
 			// return [...state, action.paylo]
+
+		case 'FILTER_DATA':
+			
+			return Object.assign({}, state, action.payload)
 	}
 	return state;
 }

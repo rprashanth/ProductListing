@@ -69,3 +69,11 @@ td:first-of-type , td:first-of-type > div{
     /* top: 6px; */
     text-align: center;
 }
+.selected{
+	float:right;
+	 margin-right:12px;
+	 width:10px;
+	 height:10px; 
+	 border-radius:10px;
+	  background-color:green
+}

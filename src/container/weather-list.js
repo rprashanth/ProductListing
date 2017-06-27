@@ -16,11 +16,11 @@ class WeatherList extends React.Component{
 	}
 	render(){
 		console.log(this.props.data)
-		if(this.props.data[0])
+		if(this.props.data.data)
 			return(
 					<div>
 					 	<ul className="list-group" >
-							{this.props.data[0].map(this.renderWeather)}
+							{this.props.data.data.map(this.renderWeather)}
 	  					</ul>
 					</div>
 				);
