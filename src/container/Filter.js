@@ -3,9 +3,22 @@ import { connect } from 'react-redux';
 
 
 class Filter extends React.Component{
-	
+	renderCategory(data){
+		return(
+			<div className="eachone">
+				<div>{data['name']}</div>
+			</div>
+		)
+	}
+	renderBrand(data){
+		return(
+			<div className="eachone">
+				<div>{data['name']}</div>
+			</div>
+		)
+	}
 	render(){
-		
+			console.log(this.props.data[1])
 			return(
 					<div className="sidenav">
 					 	<div className="header">
@@ -14,33 +27,13 @@ class Filter extends React.Component{
 					 	<div  className='brand'>
 					 		<div>Brand</div>
 						 	<div className="filterType">
-						 		<div className="eachone">
-						 			<div>EACHoNE</div>
-						 		</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-
+						 		{ this.props.data[2]?this.props.data[2].map(this.renderCategory): null}
 						 	</div>
 						</div>
 						<div  className="Category">
 					 		<div>Category</div>
 						 	<div className="filterType">
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-						 		<div className="eachone">EACHoNE</div>
-
+						 		{ this.props.data[1]?this.props.data[1].map(this.renderBrand): null}
 						 	</div>
 						</div>
 					</div>

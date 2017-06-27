@@ -15,7 +15,7 @@ class WeatherList extends React.Component{
 			)
 	}
 	render(){
-		console.log(this.props.data[0])
+		console.log(this.props.data)
 		if(this.props.data[0])
 			return(
 					<div>
