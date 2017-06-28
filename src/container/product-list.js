@@ -15,6 +15,7 @@ class ProductList extends React.Component{
 	}
 
 	shouldComponentUpdate(nextprops){
+		// every time a new props comes, based on length of data adjust pagination.
 		let array = [];
 		if(nextprops.data.data){
 			this.state.dataArray = nextprops.data.data.slice(0,10);
@@ -35,11 +36,7 @@ class ProductList extends React.Component{
 		return false;
 	}
 
-	componentWillReceiveProps(){
-		// console.log(90)
-	}
-
-	renderList(cityData, index){
+	renderList(data, index){
 
 		return(
 		    <div key={index} 
@@ -47,14 +44,14 @@ class ProductList extends React.Component{
 		    	style={{marginTop:10, fontSize:15, }}> 
 		    	<div className="row">
 		    		<div className="col-sm-8" >
-		    			<div style={{color:'black', fontWeight:600}}>{cityData['name']} </div>
+		    			<div style={{color:'black', fontWeight:600}}>{data['name']} </div>
 		    		</div>
 		    		<div className="col-sm-4"style={{fontSize:12}}>
 		    			<div className="row"> 
-		    				<div className="type">{cityData['Brand']['name']}</div>
+		    				<div className="type">{data['Brand']['name']}</div>
 		    			</div>
 		    			<div className="row" style={{marginTop:4}}> 
-		    				<div className="type">{cityData['Category']['name']}</div>
+		    				<div className="type">{data['Category']['name']}</div>
 		    			</div>
 		    		</div>
 		    	</div>
@@ -63,13 +60,15 @@ class ProductList extends React.Component{
 		    
 			)
 	}
+
 	nextPage(index){
-		// alert(index)
+		// goes to next page (for pagination)
 		let start = (index-1)*10
 		let arrayNew = this.props.data.data.slice(start, start+10)
 		this.setState({dataArray: arrayNew})
 	}
-	renderPage(index){
+
+	renderPagination(index){
 		return(
 		
 				<div key={index} className="col-sm-2" onClick={()=>this.nextPage(index)} >
@@ -78,6 +77,7 @@ class ProductList extends React.Component{
 				
 		)
 	}
+
 	moveLeftorRight(action){
 		let length = this.props.data.data.length;
 		if(action === 'right'){
@@ -105,6 +105,7 @@ class ProductList extends React.Component{
 			
 		}
 	}
+
 	render(){
 
 			return(
@@ -118,7 +119,7 @@ class ProductList extends React.Component{
 					 				<button type="button" className="btn btn-primary" style={{backgroundColor:'white', color:'black'}}>Left</button>
 								</div>
 								<div className="col-sm-8" >
-					 				{this.state.initialShowingPageList.map(this.renderPage.bind(this))}
+					 				{this.state.initialShowingPageList.map(this.renderPagination.bind(this))}
 								</div>
 	  							<div className="col-sm-2" onClick={()=>this.moveLeftorRight('right')} >
 					 				<button type="button" className="btn btn-primary" style={{backgroundColor:'white', color:'black'}}>Right</button>
@@ -133,7 +134,7 @@ class ProductList extends React.Component{
 }
 
 function mapStateToProps(state){
-	return { data: state.initialData } // same as doing weather: weather ES6
+	return { data: state.initialData } 
 }
 
 export default connect(mapStateToProps)(ProductList)

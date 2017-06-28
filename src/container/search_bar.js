@@ -32,19 +32,19 @@ class SearchBar extends Component{
 
 	onFormSubmit(event){
 		event.preventDefault();
-		this.props.search(this.state.term)
-		this.setState({term: ''})
+		this.props.search(this.state.term);
+		this.setState({term: ''});
 	}
 	
 	onInputChange(event){
 		this.setState({term: event.target.value});
-		this.props.search(event.target.value)
+		this.props.search(event.target.value);
 	}
 
 }
 
 function mapDispatchToProps(dispatch, getState) {
-	return bindActionCreators({ fetchdata, search }, dispatch, getState)
+	return bindActionCreators({ fetchdata, search }, dispatch, getState);
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar)
+export default connect(null, mapDispatchToProps)(SearchBar);
