@@ -10,7 +10,7 @@ class ProductList extends React.Component{
 			paginationValue :10 ,
 			pageLength: 6,
 			dataArray:[],
-			initialShowingPageList: [1,2,3,4,5,6]
+			initialShowingPageList: [] // for pagination numbers
 		}
 	}
 
@@ -63,7 +63,7 @@ class ProductList extends React.Component{
 
 	nextPage(index){
 		// goes to next page (for pagination)
-		let start = (index-1)*10
+		let start = (index-1)*10 // 10 products per page
 		let arrayNew = this.props.data.data.slice(start, start+10)
 		this.setState({dataArray: arrayNew})
 	}
@@ -129,7 +129,6 @@ class ProductList extends React.Component{
 						</div>
 					</div>
 				);
-		
 	}
 }
 

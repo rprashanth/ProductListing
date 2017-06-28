@@ -49,7 +49,8 @@ class Filter extends React.Component{
 		else{
 			data['applied'] = true
 		}
-		if(type=='brand'){
+		if(type=='brand'){ 
+			// make a list of applied category
 			var i = this.categoryArray.indexOf(data['name']);
 			if(i != -1) {
 				this.categoryArray.splice(i, 1);
@@ -58,7 +59,8 @@ class Filter extends React.Component{
 				this.categoryArray.push(data.name)
 			}
 		}
-		else{
+		else{ 
+			// make a list of applied category
 			var j = this.brandArray.indexOf(data['name'])
 			if(j != -1) {
 				this.brandArray.splice(j, 1);
