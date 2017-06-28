@@ -97,9 +97,10 @@ td:first-of-type , td:first-of-type > div{
 	 position: relative;
     /* top: 6px; */
     text-align: center;
-    background-color: #b5bbb5;
+    background-color: #a4a9a4;
     border-radius: 10px;
     width:100px;
+    color:white;
 }
 
 .mainType{
