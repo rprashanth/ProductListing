@@ -4,17 +4,19 @@ import { bindActionCreators } from 'redux';
 import { filterData } from '../actions/index';
 
 var that;
-var categoryArray = [];
-var brandArray = [];
+
 
 class Filter extends React.Component{
 	constructor(){
 		super();
-		this.onSelect = this.onSelect.bind(this)
+		this.onSelect = this.onSelect.bind(this);
+		this.categoryArray = [];
+		this.brandArray = [];
 	}
+
 	renderBrand(data,index){
 		return(
-			<div className="eachone" onClick={()=>{that.onSelect(data, 'category')}}>
+			<div key={index} className="eachone" onClick={()=>{that.onSelect(data, 'category')}}>
 				<div className="row">
 					<div style={{float:'left', marginLeft:12}}>{data['name']}</div>
 					{
@@ -25,9 +27,10 @@ class Filter extends React.Component{
 			</div>
 		)
 	}
+
 	renderCategory(data, index){
 		return(
-			<div className="eachone" onClick={()=>that.onSelect(data, 'brand')}>
+			<div key={index} className="eachone" onClick={()=>that.onSelect(data, 'brand')}>
 				<div className="row">
 					<div style={{float:'left', marginLeft:12}}>{data['name']}</div>
 					{
@@ -38,6 +41,7 @@ class Filter extends React.Component{
 			</div>
 		)
 	}
+
 	onSelect(data, type){
 		if(data['applied']){
 			data['applied'] = false
@@ -45,30 +49,32 @@ class Filter extends React.Component{
 		else{
 			data['applied'] = true
 		}
-		if(type=='brand'){
-			var i = categoryArray.indexOf(data['name']);
+		if(type=='brand'){ 
+			// make a list of applied category
+			var i = this.categoryArray.indexOf(data['name']);
 			if(i != -1) {
-				categoryArray.splice(i, 1);
+				this.categoryArray.splice(i, 1);
 			}
 			else{
-				categoryArray.push(data.name)
+				this.categoryArray.push(data.name)
 			}
 		}
-		else{
-			var j = brandArray.indexOf(data['name'])
+		else{ 
+			// make a list of applied category
+			var j = this.brandArray.indexOf(data['name'])
 			if(j != -1) {
-				brandArray.splice(j, 1);
+				this.brandArray.splice(j, 1);
 			}
 			else{
-				brandArray.push(data.name)
+				this.brandArray.push(data.name)
 			}
 		}
 		
-		this.props.filterData(data, categoryArray, brandArray)
+		this.props.filterData(data, this.categoryArray, this.brandArray)
 	}
+
 	render(){
 		that = this
-			console.log(this.props.data.brand)
 			return(
 					<div className="sidenav">
 					 	<div className="header">

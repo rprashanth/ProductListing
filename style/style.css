@@ -28,15 +28,16 @@ td:first-of-type , td:first-of-type > div{
 	background-color: green
 }
 .sidenav {
-    background-color: #ccc
+    background-color: black;
+    width:90%;
 }
 
 .header{
-	    font-size: 25px;
+	    font-size: 20px;
     width: 100%;
     background-color: black;
     text-align: center;
-    color: wheat;
+    color: white;
 }
 .filterType{
 	padding: 5px;
@@ -54,10 +55,17 @@ td:first-of-type , td:first-of-type > div{
 	border-color: white;
 	text-align: left;
 	font-size: 15px;
+	color: black;
 	background-color: white
+}
+.eachone:hover{
+	background-color: #123456;
+	color:white;
 }
 .Category{
 	    margin-top: 12px;
+	    color:white;
+
     position: relative;
     /* top: 6px; */
     text-align: center;
@@ -65,6 +73,7 @@ td:first-of-type , td:first-of-type > div{
 
 .brand{
 	    margin-top: 12px;
+	    color:white;
      position: relative;
     /* top: 6px; */
     text-align: center;
@@ -76,4 +85,29 @@ td:first-of-type , td:first-of-type > div{
 	 height:10px; 
 	 border-radius:10px;
 	  background-color:green
+}
+
+#list{
+	/*height:545px;*/
+	/*overflow-y: scroll;*/
+	margin-top: 10px
+}
+
+.type{
+	 position: relative;
+    /* top: 6px; */
+    text-align: center;
+    background-color: #a4a9a4;
+    border-radius: 10px;
+    width:100px;
+    color:white;
+}
+
+.mainType{
+	padding-left: 3px;
+	padding-right:3px;
+}
+.containerTest{
+	margin: 2em ;
+	padding-bottom:4em;
 }
